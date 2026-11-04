@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Mu.Api/Mu.Api.csproj" />
+  <Project Path="Mu.Entities/Mu.Entities.csproj" />
+</Solution>
