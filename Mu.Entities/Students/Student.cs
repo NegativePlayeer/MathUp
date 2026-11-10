@@ -2,7 +2,7 @@ namespace Mu.Entities.Students;
 
 public class Student
 {
-  public required string Id { get; set; }
+  public Guid Id { get; set; }
   public required string Fullname { get; set; }
   public SubjectLevel SubjectLevel { get; set; }
 }
