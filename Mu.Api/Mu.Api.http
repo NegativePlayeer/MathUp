@@ -10,3 +10,9 @@ Content-Type: application/json
 POST {{baseUrl}}/api/lessons
 
 { "studentId": "3fa85f64-5717-4562-b3fc-2c963f66afa6", "dateOfLesson": "2026-12-01T10:00:00Z" }
+
+### empty body
+POST {{baseUrl}}/api/lessons
+Content-Type: application/json
+
+{}

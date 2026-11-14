@@ -30,8 +30,8 @@ public class LessonService : ILessonService
 
         var lesson = new Lesson
         {
-            StudentId = request.StudentId,
-            DateOfLesson = request.DateOfLesson
+            StudentId = request.StudentId!.Value,
+            DateOfLesson = request.DateOfLesson!.Value
         };
 
         _studentContext.Lessons.Add(lesson);
@@ -90,8 +90,8 @@ public class LessonService : ILessonService
             throw new NotFoundException($"Student with Id {request.StudentId} not found");
         }
 
-        entity.StudentId = request.StudentId;
-        entity.DateOfLesson = request.DateOfLesson;
+        entity.StudentId = request.StudentId!.Value;
+        entity.DateOfLesson = request.DateOfLesson!.Value;
 
         await _studentContext.SaveChangesAsync();
 
