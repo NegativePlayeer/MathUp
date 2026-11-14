@@ -1,6 +1,6 @@
 using Mu.Api.Infrastructure.Validation;
 
-namespace Mu.Api.Lessons;
+namespace Mu.Api.Lessons.Model;
 
 public record CreateLessonRequest
 {

@@ -2,7 +2,6 @@ using Microsoft.EntityFrameworkCore;
 using Mu.Api;
 using Mu.Api.Infrastructure;
 using Mu.Api.Lessons;
-using Mu.Api.Lessons.Model;
 using Mu.Api.Lessons.Services;
 
 var builder = WebApplication.CreateBuilder(args);
