@@ -1,5 +1,6 @@
 @baseUrl = http://localhost:5123
 
+
 ### wrong field type
 POST {{baseUrl}}/api/lessons
 Content-Type: application/json
@@ -16,3 +17,38 @@ POST {{baseUrl}}/api/lessons
 Content-Type: application/json
 
 {}
+
+### dateOfLesson with Z (in the future)
+POST {{baseUrl}}/api/lessons
+Content-Type: application/json
+
+{ "studentId": "3fa85f64-5717-4562-b3fc-2c963f66afa6", "dateOfLesson": "{{$datetime iso8601 30 m}}"
+ }
+
+### dateOfLesson with Z (in the past)
+POST {{baseUrl}}/api/lessons
+Content-Type: application/json
+
+{ "studentId": "3fa85f64-5717-4562-b3fc-2c963f66afa6", "dateOfLesson": "{{$datetime iso8601 -30 m}}"
+ }
+
+### dateOfLesson with localtime (in the future)
+POST {{baseUrl}}/api/lessons
+Content-Type: application/json
+
+{ "studentId": "3fa85f64-5717-4562-b3fc-2c963f66afa6", "dateOfLesson": "{{$localDatetime iso8601 30 m}}"
+ }
+
+### dateOfLesson with localtime (in the past)
+POST {{baseUrl}}/api/lessons
+Content-Type: application/json
+
+{ "studentId": "3fa85f64-5717-4562-b3fc-2c963f66afa6", "dateOfLesson": "{{$localDatetime iso8601 -30 m}}"
+ }
+
+### dateOfLesson without timezone
+POST {{baseUrl}}/api/lessons
+Content-Type: application/json
+
+{ "studentId": "3fa85f64-5717-4562-b3fc-2c963f66afa6", "dateOfLesson": "2026-12-01T19:00:00"
+ }
