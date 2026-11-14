@@ -6,24 +6,26 @@ using Mu.Api.Lessons.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<StudentContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<StudentContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddExceptionHandler<MuExceptionHandler>();
 
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 builder.Services.AddProblemDetails();
 builder.Services.AddValidation();
+builder.Services.AddOpenApi();
 
 builder.Services.AddScoped<ILessonService, LessonService>();
 
 var app = builder.Build();
 
+app.UseExceptionHandler();
+
 if (app.Environment.IsDevelopment())
 {
-  app.UseSwagger();
-  app.UseSwaggerUI();
+  app.MapOpenApi();
+  app.UseSwaggerUI(o =>
+      o.SwaggerEndpoint("/openapi/v1.json", "MathUp API"));
 }
 
-app.UseExceptionHandler();
 app.MapLessonEndpoints();
 app.Run();
