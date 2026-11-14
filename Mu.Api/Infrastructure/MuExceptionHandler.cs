@@ -22,6 +22,7 @@ public class MuExceptionHandler : IExceptionHandler
         {
             NotFoundException => StatusCodes.Status404NotFound,
             BusinessRuleException => StatusCodes.Status422UnprocessableEntity,
+            BadHttpRequestException e => e.StatusCode,
             _ => StatusCodes.Status500InternalServerError
         };
 
