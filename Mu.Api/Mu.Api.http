@@ -22,7 +22,7 @@ Content-Type: application/json
 POST {{baseUrl}}/api/lessons
 Content-Type: application/json
 
-{ "studentId": "3fa85f64-5717-4562-b3fc-2c963f66afa6", "dateOfLesson": "{{$datetime iso8601 30 m}}"
+{ "studentId": "3FA85F64-5717-4562-B3FC-2C963F66AFB6", "dateOfLesson": "{{$datetime iso8601 30 m}}"
  }
 
 ### dateOfLesson with Z (in the past)
@@ -52,3 +52,14 @@ Content-Type: application/json
 
 { "studentId": "3fa85f64-5717-4562-b3fc-2c963f66afa6", "dateOfLesson": "2026-12-01T19:00:00"
  }
+
+ @lessonId = 3ee1cbd2-6d82-44db-b371-595d67cd6472
+
+### get lesson
+GET {{baseUrl}}/api/lessons/{{lessonId}}
+
+### update lesson
+PUT {{baseUrl}}/api/lessons/{{lessonId}}
+Content-Type: application/json
+
+{ "studentId": "3fa85f64-5717-4562-b3fc-2c963f66afa6", "dateOfLesson": "2026-12-05T15:00:00Z" }

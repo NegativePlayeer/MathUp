@@ -21,9 +21,9 @@ public class LessonService : ILessonService
 
     public async Task<LessonDto> CreateLessonAsync(CreateLessonRequest request)
     {
-        var student = await _studentContext.Students.FirstOrDefaultAsync(s => s.Id == request.StudentId);
+        var studentExists = await _studentContext.Students.AnyAsync(s => s.Id == request.StudentId);
 
-        if (student is null)
+        if (studentExists is false)
         {
             throw new NotFoundException($"Student with Id {request.StudentId} not found");
         }
@@ -83,9 +83,9 @@ public class LessonService : ILessonService
             throw new NotFoundException($"Lesson with Id {lessonId} not found");
         }
 
-        var student = await _studentContext.Students.FindAsync(request.StudentId);
+        var studentExists = await _studentContext.Students.AnyAsync(s => s.Id == request.StudentId);
 
-        if (student is null)
+        if (studentExists is false)
         {
             throw new NotFoundException($"Student with Id {request.StudentId} not found");
         }
