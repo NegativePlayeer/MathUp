@@ -100,15 +100,12 @@ public class LessonService : ILessonService
 
     public async Task DeleteLessonAsync(Guid lessonId)
     {
-        var entity = await _studentContext.Lessons.FirstOrDefaultAsync(l => l.Id == lessonId);
+        var deletedCount = await _studentContext.Lessons.Where(l => l.Id == lessonId).ExecuteDeleteAsync();
 
-        if (entity is null)
+        if (deletedCount is 0)
         {
             throw new NotFoundException($"Lesson with Id {lessonId} not found");
         }
-
-        _studentContext.Lessons.Remove(entity);
-        await _studentContext.SaveChangesAsync();
 
         _logger.LogInformation("Lesson with id {LessonId} was deleted", lessonId);
     }

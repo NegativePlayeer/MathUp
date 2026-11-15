@@ -63,3 +63,10 @@ PUT {{baseUrl}}/api/lessons/{{lessonId}}
 Content-Type: application/json
 
 { "studentId": "3fa85f64-5717-4562-b3fc-2c963f66afa6", "dateOfLesson": "2026-12-05T15:00:00Z" }
+
+
+### delete lesson
+DELETE {{baseUrl}}/api/lessons/{{lessonId}}
+Content-Type: application/json
+
+{ "lessonId": {{lessonId}}}
