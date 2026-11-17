@@ -31,7 +31,9 @@ namespace Mu.Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Lessons", (string)null);
+                    b.HasIndex("StudentId");
+
+                    b.ToTable("Lessons");
                 });
 
             modelBuilder.Entity("Mu.Entities.Students.Student", b =>
@@ -49,7 +51,18 @@ namespace Mu.Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Students", (string)null);
+                    b.ToTable("Students");
+                });
+
+            modelBuilder.Entity("Mu.Entities.Lesson", b =>
+                {
+                    b.HasOne("Mu.Entities.Students.Student", "Student")
+                        .WithMany()
+                        .HasForeignKey("StudentId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Student");
                 });
 #pragma warning restore 612, 618
         }

@@ -17,4 +17,13 @@ public class StudentContext : DbContext
     configurationBuilder.Properties<DateTime>()
       .HaveConversion<UtcDateTimeConverter>();
   }
+
+  protected override void OnModelCreating(ModelBuilder modelBuilder)
+  {
+    modelBuilder.Entity<Lesson>()
+      .HasOne(l => l.Student)
+      .WithMany()
+      .HasForeignKey(s => s.StudentId)
+      .OnDelete(DeleteBehavior.Restrict);
+  }
 }
