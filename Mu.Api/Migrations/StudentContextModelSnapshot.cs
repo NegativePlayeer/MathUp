@@ -31,7 +31,7 @@ namespace Mu.Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Lessons");
+                    b.ToTable("Lessons", (string)null);
                 });
 
             modelBuilder.Entity("Mu.Entities.Students.Student", b =>
@@ -49,7 +49,7 @@ namespace Mu.Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Students");
+                    b.ToTable("Students", (string)null);
                 });
 #pragma warning restore 612, 618
         }
