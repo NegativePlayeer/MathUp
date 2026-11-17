@@ -2,7 +2,7 @@ namespace Mu.Entities;
 
 public class Lesson
 {
-  public required string Id { get; set; }
-  public required string StudentId { get; set; }
+  public Guid Id { get; set; }
+  public required Guid StudentId { get; set; }
   public DateTime DateOfLesson { get; set; }
 }
