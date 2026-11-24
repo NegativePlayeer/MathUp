@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using Mu.Api.Infrastructure.Validation;
 
-namespace Mu.Api.Lessons.Model;
+namespace Mu.Api.Features.Lessons.Model;
 
 public record UpdateLessonRequest
 {

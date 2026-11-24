@@ -1,4 +1,4 @@
-namespace Mu.Api.Lessons.Model;
+namespace Mu.Api.Features.Lessons.Model;
 
 public record LessonDto
 {

@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using Mu.Api.Features.Lessons.Model;
 using Mu.Api.Infrastructure.Exceptions;
-using Mu.Api.Lessons.Model;
 using Mu.Entities;
 
 namespace Mu.Api.Lessons.Services;

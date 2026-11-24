@@ -1,4 +1,4 @@
-using Mu.Api.Lessons.Model;
+using Mu.Api.Features.Lessons.Model;
 using Mu.Api.Lessons.Services;
 
 namespace Mu.Api.Lessons;
